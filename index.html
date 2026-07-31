@@ -191,5 +191,28 @@
     <p><span class="brand">Tuningservice Vest</span> – Mobil diagnose, feilsøking og optimalisering – for en mer driftssikker hverdag.</p>
   </footer>
 
+  <script>
+    document.addEventListener('click', function (event) {
+      var target = event.target;
+      if (!target || typeof target.closest !== 'function') {
+        return;
+      }
+
+      var link = target.closest('a[href]');
+      if (!link) {
+        return;
+      }
+
+      var href = link.getAttribute('href');
+      var contactMethod = href && href.indexOf('tel:') === 0 ? 'phone' : href && href.indexOf('mailto:') === 0 ? 'email' : null;
+
+      if (contactMethod && typeof gtag === 'function') {
+        gtag('event', 'conversion_event_contact', {
+          contact_method: contactMethod
+        });
+      }
+    });
+  </script>
+
 </body>
 </html>
