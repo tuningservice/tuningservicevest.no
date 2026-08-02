@@ -204,7 +204,7 @@
 
         <button type="submit" class="btn-primary">Send henvending</button>
       </form>
-      <p id="kontaktskjema-status" style="display:none; font-weight:700; margin-top:16px;"></p>
+     <p id="kontaktskjema-status" class="contact-form-status" style="display:none;"></p> 
     </div>
 
     <script>
@@ -222,14 +222,14 @@
             form.reset();
             form.style.display = 'none';
             status.textContent = 'Takk! Vi har mottatt henvendinga di og tar kontakt så snart som mogleg.';
-            status.style.color = '#0a5c2b';
+           status.classList.remove('error');
             status.style.display = 'block';
             if (typeof gtag === 'function') {
               gtag('event', 'conversion_event_contact', { contact_method: 'form' });
             }
           } else {
             status.textContent = 'Noko gjekk gale. Prøv igjen, eller ring 948 09 710.';
-            status.style.color = '#b00020';
+            status.classList.add('error');
             status.style.display = 'block';
           }
         }).catch(function () {
