@@ -184,8 +184,9 @@
         <p>Vi kommer dit du er i hele Vestland</p>
       </div>
     </div><div class="contact-form">
+     <div class="contact-form">
       <h3>Eller send skjema</h3>
-      <form action="https://formspree.io/f/xwvggenk" method="POST" onsubmit="if(typeof gtag==='function'){gtag('event','conversion_event_contact',{contact_method:'form'});}">
+      <form id="kontaktskjema" action="https://formspree.io/f/xwvggenk" method="POST">
         <input type="hidden" name="_subject" value="Ny henvending frå tuningservicevest.no">
         <input type="text" name="_gotcha" style="display:none">
 
@@ -203,7 +204,41 @@
 
         <button type="submit" class="btn-primary">Send henvending</button>
       </form>
+      <p id="kontaktskjema-status" style="display:none; font-weight:700; margin-top:16px;"></p>
     </div>
+
+    <script>
+      document.getElementById('kontaktskjema').addEventListener('submit', function (e) {
+        e.preventDefault();
+        var form = e.target;
+        var status = document.getElementById('kontaktskjema-status');
+
+        fetch(form.action, {
+          method: 'POST',
+          body: new FormData(form),
+          headers: { 'Accept': 'application/json' }
+        }).then(function (response) {
+          if (response.ok) {
+            form.reset();
+            form.style.display = 'none';
+            status.textContent = 'Takk! Vi har mottatt henvendinga di og tar kontakt så snart som mogleg.';
+            status.style.color = '#0a5c2b';
+            status.style.display = 'block';
+            if (typeof gtag === 'function') {
+              gtag('event', 'conversion_event_contact', { contact_method: 'form' });
+            }
+          } else {
+            status.textContent = 'Noko gjekk gale. Prøv igjen, eller ring 948 09 710.';
+            status.style.color = '#b00020';
+            status.style.display = 'block';
+          }
+        }).catch(function () {
+          status.textContent = 'Noko gjekk gale. Prøv igjen, eller ring 948 09 710.';
+          status.style.color = '#b00020';
+          status.style.display = 'block';
+        });
+      });
+    </script>  </div>
   </section>
 
   <!-- Footer -->
