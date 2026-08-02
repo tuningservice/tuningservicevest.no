@@ -589,7 +589,7 @@ nav.navbar {
 .contact-form button {
   align-self: flex-start;
   cursor: pointer;
-}..contact-form-status {
+}.contact-form-status {
   margin-top: 20px;
   padding: 18px 20px;
   border-radius: 8px;
