@@ -545,6 +545,50 @@ nav.navbar {
   margin: 0;
   font-size: 0.95rem;
   color: #222;
+}.contact-form {
+  max-width: 640px;
+  margin: 40px auto 0;
+  text-align: left;
+}
+.contact-form h3 {
+  font-size: 1.1rem;
+  margin-bottom: 16px;
+  color: #000;
+  text-align: center;
+}
+.contact-form form {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+.contact-form label {
+  display: block;
+  font-weight: 700;
+  font-size: 0.85rem;
+  margin-bottom: 6px;
+  color: #000;
+}
+.contact-form input[type="text"],
+.contact-form input[type="tel"],
+.contact-form input[type="email"],
+.contact-form textarea {
+  width: 100%;
+  padding: 12px;
+  border: 2px solid #000;
+  border-radius: 4px;
+  background: #fff;
+  color: #000;
+  font-size: 0.95rem;
+  font-family: inherit;
+  box-sizing: border-box;
+}
+.contact-form textarea {
+  resize: vertical;
+  min-height: 120px;
+}
+.contact-form button {
+  align-self: flex-start;
+  cursor: pointer;
 }
 
 /* ===== Footer ===== */
