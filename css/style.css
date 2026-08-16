@@ -618,6 +618,23 @@ nav.navbar {
   font-weight: 600;
 }
 
+.footer-credit {
+    margin-top: 10px;
+    font-size: 0.78rem;
+    color: #666;
+}
+
+.footer-credit a {
+    color: #888;
+    text-decoration: none;
+}
+
+.footer-credit a:hover,
+.footer-credit a:focus-visible {
+    color: var(--accent-color);
+    text-decoration: underline;
+}
+
 /* ===== Responsive Adjustments ===== */
 @media (max-width: 992px) {
   .hero {
