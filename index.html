@@ -215,63 +215,43 @@
       <a href="tel:94809710" class="btn-contact">Ring 948&nbsp;09&nbsp;710</a>
       <a href="mailto:vest@tuningservice.no" class="btn-contact secondary">Send e-post</a>
     </div>
-   <div class="contact-form">
-     <div class="contact-form">
+    <div class="contact-form">
       <h3>Eller send skjema</h3>
-      <p style="font-size:0.85rem;opacity:0.85;margin:0 0 12px;">Send gjerne registreringsnummer, modell, feilkodar og kvar køyretøyet står. Ikkje send sensitive personopplysningar.</p>
-      <form id="kontaktskjema" action="https://formspree.io/f/xwvggenk" method="POST">
-        <input type="hidden" name="_subject" value="Ny henvending frå tuningservicevest.no">
-        <input type="text" name="_gotcha" style="display:none">
+      <p class="contact-form-help">Send gjerne registreringsnummer, modell, feilkodar og kvar køyretøyet eller maskina står. Ikkje send sensitive personopplysningar.</p>
 
-        <label for="navn">Namn</label>
-        <input type="text" id="navn" name="Namn" required>
+      <form id="kontaktskjema" action="/api/contact" method="POST" novalidate>
+        <div class="contact-form-field">
+          <label for="navn">Namn <span class="required" aria-hidden="true">*</span></label>
+          <input type="text" id="navn" name="name" autocomplete="name" maxlength="100" required>
+        </div>
 
-        <label for="telefon">Telefon</label>
-        <input type="tel" id="telefon" name="Telefon" required>
+        <div class="contact-form-field">
+          <label for="bedrift">Bedrift <span class="optional">(valfritt)</span></label>
+          <input type="text" id="bedrift" name="company" autocomplete="organization" maxlength="100">
+        </div>
 
-        <label for="epost">E-post</label>
-        <input type="email" id="epost" name="E-post">
+        <div class="contact-form-field">
+          <label for="epost">E-post <span class="required" aria-hidden="true">*</span></label>
+          <input type="email" id="epost" name="email" autocomplete="email" maxlength="254" required>
+        </div>
 
-        <label for="melding">Kva gjeld det?</label>
-        <textarea id="melding" name="Melding" rows="5" required></textarea>
+        <div class="contact-form-field">
+          <label for="telefon">Telefonnummer <span class="optional">(valfritt)</span></label>
+          <input type="tel" id="telefon" name="phone" autocomplete="tel" maxlength="30">
+        </div>
 
-        <button type="submit" class="btn-primary">Send henvending</button>
+        <div class="contact-form-field">
+          <label for="melding">Kva gjeld det?</label>
+          <textarea id="melding" name="message" rows="5" maxlength="3000"></textarea>
+        </div>
+
+        <p id="kontaktskjema-status" class="contact-form-status" role="status" aria-live="polite" hidden></p>
+
+        <div class="cf-turnstile" data-sitekey="__TURNSTILE_SITE_KEY__"></div>
+
+        <button type="submit" class="btn-primary" id="sendknapp">Send henvending</button>
       </form>
-     <p id="kontaktskjema-status" class="contact-form-status" style="display:none;"></p> 
     </div>
-
-    <script>
-      document.getElementById('kontaktskjema').addEventListener('submit', function (e) {
-        e.preventDefault();
-        var form = e.target;
-        var status = document.getElementById('kontaktskjema-status');
-
-        fetch(form.action, {
-          method: 'POST',
-          body: new FormData(form),
-          headers: { 'Accept': 'application/json' }
-        }).then(function (response) {
-          if (response.ok) {
-            form.reset();
-            form.style.display = 'none';
-            status.textContent = 'Takk! Vi har mottatt henvendinga di og tar kontakt så snart som mogleg.';
-           status.classList.remove('error');
-            status.style.display = 'block';
-            if (typeof gtag === 'function') {
-              gtag('event', 'conversion_event_contact', { contact_method: 'form' });
-            }
-          } else {
-            status.textContent = 'Noko gjekk gale. Prøv igjen, eller ring 948 09 710.';
-            status.classList.add('error');
-            status.style.display = 'block';
-          }
-        }).catch(function () {
-          status.textContent = 'Noko gjekk gale. Prøv igjen, eller ring 948 09 710.';
-          status.style.color = '#b00020';
-          status.style.display = 'block';
-        });
-      });
-    </script>  </div>
   </section>
 
   <!-- Footer -->
@@ -302,6 +282,7 @@
       }
     });
   </script>
+  <script src="js/contact-form.js"></script>
 
 </body>
 </html>
