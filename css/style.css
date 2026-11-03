@@ -545,40 +545,22 @@ nav.navbar {
   margin: 0;
   font-size: 0.95rem;
   color: #222;
-}
-
-.contact-form {
+}.contact-form {
   max-width: 640px;
   margin: 40px auto 0;
   text-align: left;
 }
-
 .contact-form h3 {
   font-size: 1.1rem;
-  margin-bottom: 10px;
+  margin-bottom: 16px;
   color: #000;
   text-align: center;
 }
-
-.contact-form-help {
-  margin: 0 auto 20px;
-  color: #222;
-  font-size: 0.88rem;
-  line-height: 1.55;
-  text-align: center;
-}
-
 .contact-form form {
   display: flex;
   flex-direction: column;
   gap: 16px;
 }
-
-.contact-form-field {
-  display: flex;
-  flex-direction: column;
-}
-
 .contact-form label {
   display: block;
   font-weight: 700;
@@ -586,19 +568,10 @@ nav.navbar {
   margin-bottom: 6px;
   color: #000;
 }
-
-.contact-form .required {
-  color: #7a1420;
-}
-
-.contact-form .optional {
-  color: #333;
-  font-weight: 500;
-}
-
 .contact-form input[type="text"],
 .contact-form input[type="tel"],
 .contact-form input[type="email"],
+.contact-form select,
 .contact-form textarea {
   width: 100%;
   padding: 12px;
@@ -611,54 +584,105 @@ nav.navbar {
   box-sizing: border-box;
 }
 
-.contact-form input:focus,
-.contact-form textarea:focus {
-  outline: 3px solid rgba(0, 0, 0, 0.28);
-  outline-offset: 2px;
+/* ===== Diagnose and equipment rental ===== */
+.nav-links { display: grid; grid-template-columns: repeat(4, max-content); gap: 4px 20px; }
+html { scroll-behavior: smooth; }
+:focus-visible { outline: 3px solid var(--accent-color); outline-offset: 5px; }
+.contact :focus-visible { outline-color: #000; }
+.nav-links li a { min-height: 44px; display: inline-flex; align-items: center; }
+.hero { min-height: 720px; }
+.offer-container { max-width: 1120px; margin: 0 auto; }
+.offer-page h1 { font-size: clamp(2rem, 4.1vw, 3.4rem); line-height: 1.2; max-width: 940px; margin: 12px 0 24px; letter-spacing: -0.03em; }
+.offer-page h2 { font-size: clamp(1.6rem, 2.5vw, 2.15rem); line-height: 1.3; margin: 8px 0 26px; }
+.offer-page h3 { line-height: 1.4; }
+.offer-page p { color: var(--muted-color); }
+.offer-hero { padding: 70px 7% 58px; background: radial-gradient(ellipse at top right, #2a2417 0, #141310 40%, #0b0b0b 80%); border-bottom: 1px solid #29251d; }
+.eyebrow { color: var(--accent-color) !important; font-size: 0.78rem; font-weight: 600; letter-spacing: 0.13em; text-transform: uppercase; margin: 0; }
+.offer-lead { max-width: 790px; font-size: 1.08rem; }
+.offer-actions { display: flex; align-items: center; flex-wrap: wrap; gap: 20px 30px; margin: 30px 0; }
+.offer-location { font-size: 0.82rem; margin: 0; }
+.text-link { color: var(--accent-color); font-weight: 600; text-underline-offset: 5px; }
+.text-link:hover { color: #edce8a; }
+.service-link { display: inline-block; margin-top: 20px; font-size: 0.87rem; }
+.offer-section { padding: 64px 7%; }
+.diagnose-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
+.offer-card { background: var(--card-bg); border: 1px solid #2c2a25; border-radius: 6px; padding: 30px; }
+.offer-card h3 { color: var(--accent-color); font-size: 1.25rem; margin: 12px 0 16px; }
+.offer-card p { font-size: 0.95rem; }
+.offer-card .symptoms { color: var(--text-color); font-weight: 500; }
+.card-number { color: #9e895f; font-size: 0.8rem; letter-spacing: 0.1em; }
+.heater-card { grid-column: 1 / -1; }
+.heater-card > p { max-width: 850px; }
+.offer-note { border-left: 3px solid var(--accent-color); background: #1c1a15; padding: 18px 22px; color: #e1d5bc; font-size: 0.9rem; margin-top: 26px; }
+.price-section { background: #111; border-block: 1px solid #252525; }
+#prisar, #utstyr { scroll-margin-top: 24px; }
+.price-travel { color: #e9d8af !important; max-width: 850px; }
+.price-list { margin: 32px 0 16px; border-top: 1px solid #363127; }
+.price-row { display: grid; grid-template-columns: 1fr auto; gap: 28px; padding: 26px 0; border-bottom: 1px solid #363127; }
+.price-row h3 { margin: 0 0 8px; font-size: 1.05rem; }
+.price-row p { margin: 0; max-width: 770px; font-size: 0.92rem; }
+.price-row .price-value { color: var(--accent-color); font-size: 1.25rem; font-weight: 600; white-space: nowrap; }
+.price-tax { font-size: 0.85rem; }
+.next-step { display: grid; grid-template-columns: 1.7fr 1fr; align-items: start; gap: 56px; }
+.next-step .btn-primary { margin-top: 12px; }
+.cross-link { border-left: 1px solid #51442c; padding: 8px 0 8px 28px; margin-top: 24px; }
+.cross-link h3 { margin: 0; }
+.equipment-card { border: 1px solid #3e3525; background: linear-gradient(120deg, #1d1b15, #121212 70%); border-radius: 6px; padding: 40px; display: flex; gap: 36px; align-items: center; }
+.equipment-copy { max-width: 780px; }
+.equipment-card h3 { font-size: clamp(1.5rem, 3vw, 2.2rem); margin: 14px 0 8px; }
+.equipment-addon { color: var(--accent-color) !important; margin-top: 0; }
+.equipment-price { color: var(--text-color) !important; font-weight: 600; margin: 28px 0 18px; }
+.equipment-image { width: 32%; object-fit: contain; border-radius: 4px; }
+.field-help { margin: -8px 0 0; font-size: 0.82rem; color: #222; }
+.contact-form label { margin-bottom: -8px; }
+.contact-form button { background: #000; color: #fff; border: 2px solid #000; font-family: inherit; font-size: 0.95rem; }
+.contact-form button:hover { background: #252525; }
+.contact-form button:disabled { opacity: 0.65; cursor: wait; }
+@media (max-width: 992px) and (min-width: 769px) {
+  nav.navbar { padding-inline: 24px; gap: 20px; }
+  .logo img { width: 280px; }
+  .nav-links { grid-template-columns: repeat(3, max-content); gap: 4px 18px; }
+  .nav-links li a { font-size: 0.85rem; }
 }
-
-.contact-form input[aria-invalid="true"],
-.contact-form textarea[aria-invalid="true"] {
-  border-color: #7a1420;
-  box-shadow: 0 0 0 2px rgba(122, 20, 32, 0.18);
+@media (max-width: 768px) {
+  .offer-hero, .offer-section { padding: 40px 6%; }
+  .offer-page h1 { font-size: 2rem; }
+  .offer-lead { font-size: 1rem; }
+  .diagnose-grid, .next-step { grid-template-columns: 1fr; gap: 20px; }
+  .offer-card { padding: 24px; }
+  .cross-link { margin-top: 14px; }
+  .equipment-card { padding: 26px; flex-direction: column; align-items: start; }
+  .equipment-image { width: 100%; max-width: 420px; }
+  .hero { min-height: 76vh; }
 }
-
+@media (max-width: 480px) {
+  .price-row { grid-template-columns: 1fr; gap: 12px; }
+  .offer-actions { align-items: start; flex-direction: column; }
+  .offer-page h1 { font-size: 1.85rem; }
+}
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after { transition: none !important; }
+}
 .contact-form textarea {
   resize: vertical;
   min-height: 120px;
 }
-
-.cf-turnstile {
-  min-height: 65px;
-  max-width: 100%;
-  overflow: hidden;
-}
-
 .contact-form button {
   align-self: flex-start;
   cursor: pointer;
-}
-
-.contact-form button:disabled {
-  cursor: wait;
-  opacity: 0.7;
-}
-
-.contact-form-status {
-  margin: 0;
-  padding: 14px 16px;
-  border-left: 4px solid #000;
-  border-radius: 4px;
+}.contact-form-status {
+  margin-top: 20px;
+  padding: 18px 20px;
+  border-radius: 8px;
   background: #000;
   color: #fff;
-  font-size: 0.95rem;
+  font-size: 1.05rem;
   font-weight: 600;
-  line-height: 1.5;
+  text-align: center;
 }
-
 .contact-form-status.error {
   background: #7a1420;
-  border-left-color: #fff;
 }
 
 /* ===== Footer ===== */
@@ -810,3 +834,41 @@ nav.navbar {
     min-height: 1080px;
   }
 }
+
+/* Shared service subpage header. */
+.skip-link {
+  position: absolute;
+  left: -9999px;
+  top: 0;
+  z-index: 10;
+  padding: 12px 18px;
+  background: var(--accent-color);
+  color: #000;
+  font-weight: 700;
+  text-decoration: none;
+  border-radius: 0 0 4px 0;
+}
+
+.skip-link:focus {
+  left: 0;
+}
+
+.subpage-header {
+  background-color: #000;
+  border-bottom: 1px solid #222;
+}
+
+.subpage-header nav.navbar {
+  position: static;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+
+/* Established Cloudflare contact flow with reviewed form styling. */
+.contact-form-field { display:flex; flex-direction:column; gap:8px; }
+.contact-form-field .optional, .contact-form-field .required { font-size:0.8rem; }
+.contact-form select { width:100%; padding:12px; border:2px solid #000; border-radius:4px; background:#fff; color:#000; font:inherit; }
+.contact-form-status[hidden] { display:none !important; }
+.footer-credit { grid-column:1/-1; text-align:center; font-size:0.78rem; color:#888; }
+.footer-credit a { color:inherit; }

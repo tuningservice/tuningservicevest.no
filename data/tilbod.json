@@ -1,0 +1,43 @@
+{
+  "diagnose": {
+    "mvaTekst": "Det blir ikkje kravd meirverdiavgift.",
+    "reiseTekst": "Oppmøte og køyring kjem i tillegg. Du får vite kva det kostar før eg køyrer ut.",
+    "prisar": [
+      {
+        "id": "avlesing",
+        "namn": "Feilkodeavlesing på personbil/varebil",
+        "pris": 790,
+        "omfang": "Avlesing og kort gjennomgang av funna med kunden."
+      },
+      {
+        "id": "feilsoking",
+        "namn": "Målretta feilsøking på personbil/varebil",
+        "pris": 1290,
+        "omfang": "Inntil 60 minutt på eitt avtalt problem. Avlesing er inkludert. Vidare arbeid blir avtalt med kunden."
+      },
+      {
+        "id": "opplasing",
+        "namn": "Opplåsing av Webasto/Eberspächer",
+        "pris": 990,
+        "omfang": "Kontroll av sperrestatus og opplåsing på ein støtta modell når føresetnadene er oppfylte."
+      },
+      {
+        "id": "etter-avtale",
+        "namn": "Feilsøking på dieselvarmar, lastebil eller anleggsmaskin",
+        "pris": null,
+        "omfang": "Pris blir avklart ut frå modell, symptom og omfang."
+      }
+    ]
+  },
+  "utstyr": [
+    {
+      "id": "launch-x431",
+      "namn": "Launch X431 PRO3S+ SmartLink",
+      "tillegg": "Med Heavy Duty-utstyr",
+      "skildring": "Diagnoseutstyr for avlesing av feilkodar og livedata på støtta køyretøy. Heavy Duty-utstyret gjer det aktuelt også for lastebil. Kva system og funksjonar du får tilgang til, varierer med køyretøy og oppsett.",
+      "prisTekst": "Pris etter avtale",
+      "bilete": null,
+      "bileteAlt": ""
+    }
+  ]
+}

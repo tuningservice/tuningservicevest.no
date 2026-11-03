@@ -77,13 +77,15 @@
 <body id="home">
   <!-- Header with navigation and hero section -->
   <header>
-    <nav class="navbar">
+    <nav class="navbar" aria-label="Hovudmeny">
       <div class="logo">
         <a href="#home"><img src="img/logo-transparent.png" alt="Tuningservice Vest logo" width="1902" height="434" /></a>
       </div>
       <ul class="nav-links">
         <li><a href="#home" class="active">Hjem</a></li>
         <li><a href="#services">Tjenester</a></li>
+        <li><a href="/diagnose/">Diagnose</a></li>
+        <li><a href="/utleige/">Utleige</a></li>
         <li><a href="https://adbluehjelp.no/">AdBlue</a></li>
         <li><a href="https://maskindiagnose.no/">Maskindiagnose</a></li>
         <li><a href="#about">Om oss</a></li>
@@ -135,8 +137,9 @@
       </div>
       <div class="service-item">
         <div class="service-icon">🔍</div>
-        <h3>Feilsøking</h3>
+        <h3>Mobil diagnose og feilsøking</h3>
         <p>Avansert diagnose med moderne utstyr – raskt og treffsikkert.</p>
+        <a class="text-link service-link" href="/diagnose/">Sjå diagnose og prisar →</a>
       </div>
       <div class="service-item">
         <div class="service-icon">💻</div>
@@ -147,6 +150,12 @@
         <div class="service-icon">🚚</div>
         <h3>Service på staden</h3>
         <p>Vi er mobile og utfører service der maskina står – du sparer tid og pengar.</p>
+      </div>
+      <div class="service-item">
+        <div class="service-icon" aria-hidden="true">🧰</div>
+        <h3>Utleige av utstyr</h3>
+        <p>Vil du feilsøkje sjølv? Spør om diagnoseutstyr og spesialverktøy til oppdraget ditt.</p>
+        <a class="text-link service-link" href="/utleige/">Sjå utstyr til leige →</a>
       </div>
     </div>
   </section>
@@ -215,19 +224,19 @@
       <a href="tel:94809710" class="btn-contact">Ring 948&nbsp;09&nbsp;710</a>
       <a href="mailto:vest@tuningservice.no" class="btn-contact secondary">Send e-post</a>
     </div>
-    <div class="contact-form">
+   <div class="contact-form">
       <h3>Eller send skjema</h3>
-      <p class="contact-form-help">Send gjerne registreringsnummer, modell, feilkodar og kvar køyretøyet eller maskina står. Ikkje send sensitive personopplysningar.</p>
-
+      <p>Reg.nr. og bilete er ikkje nødvendig for å ta kontakt. Ikkje send sensitive personopplysningar.</p>
       <form id="kontaktskjema" action="/api/contact" method="POST" novalidate>
+<div class="contact-form-field"><label for="emne">Emne</label><select id="emne" name="package"><option value="Generell førespurnad">Generell førespurnad</option><option value="Diagnose">Diagnose</option><option value="Utleige">Utleige</option></select></div>
         <div class="contact-form-field">
           <label for="navn">Namn <span class="required" aria-hidden="true">*</span></label>
           <input type="text" id="navn" name="name" autocomplete="name" maxlength="100" required>
         </div>
 
         <div class="contact-form-field">
-          <label for="bedrift">Bedrift <span class="optional">(valfritt)</span></label>
-          <input type="text" id="bedrift" name="company" autocomplete="organization" maxlength="100">
+          <label for="kontakt-bedrift">Bedrift <span class="optional">(valfritt)</span></label>
+          <input type="text" id="kontakt-bedrift" name="company" autocomplete="organization" maxlength="100">
         </div>
 
         <div class="contact-form-field">
@@ -240,18 +249,20 @@
           <input type="tel" id="telefon" name="phone" autocomplete="tel" maxlength="30">
         </div>
 
-        <div class="contact-form-field">
+        <div class="contact-form-field"><label for="regnr">Registreringsnummer (valfritt)</label><input type="text" id="regnr" name="registration" maxlength="30" autocapitalize="characters" spellcheck="false"></div>
+<div class="contact-form-field">
           <label for="melding">Kva gjeld det?</label>
-          <textarea id="melding" name="message" rows="5" maxlength="3000"></textarea>
+<p id="melding-hjelp" class="field-help">Kva skjer, og kvar står bilen, maskina eller varmaren? Ta gjerne med reg.nr. eller modell.</p>
+          <textarea id="melding" name="message" rows="6" maxlength="2600" aria-describedby="melding-hjelp bilete-hjelp"></textarea>
+<p id="bilete-hjelp" class="field-help">Du kan sende skjemaet utan reg.nr. og bilete.</p>
         </div>
 
         <p id="kontaktskjema-status" class="contact-form-status" role="status" aria-live="polite" hidden></p>
 
-        <div class="cf-turnstile" data-sitekey="0x4AAAAAAEgl4lgOV36JFaJD"></div>
+        <div class="cf-turnstile" data-size="compact" data-sitekey="0x4AAAAAAEgl4lgOV36JFaJD"></div>
 
-        <button type="submit" class="btn-primary" id="sendknapp">Send henvending</button>
-      </form>
-    </div>
+        <button type="submit" class="btn-primary" id="sendknapp">Send førespurnad</button>
+      </form></div>
   </section>
 
   <!-- Footer -->
@@ -260,29 +271,10 @@
     <p class="footer-credit">Nettside utvikla av <a href="https://vevsmia.no/">Vevsmia</a></p>
 </footer>
 
-  <script>
-    document.addEventListener('click', function (event) {
-      var target = event.target;
-      if (!target || typeof target.closest !== 'function') {
-        return;
-      }
+  <script src="/js/contact-tracking.js" defer></script>
 
-      var link = target.closest('a[href]');
-      if (!link) {
-        return;
-      }
-
-      var href = link.getAttribute('href');
-      var contactMethod = href && href.indexOf('tel:') === 0 ? 'phone' : href && href.indexOf('mailto:') === 0 ? 'email' : null;
-
-      if (contactMethod && typeof gtag === 'function') {
-        gtag('event', 'conversion_event_contact', {
-          contact_method: contactMethod
-        });
-      }
-    });
-  </script>
-  <script src="js/contact-form.js"></script>
-
+<script src="/js/contact-context.js" defer></script>
+<script src="/js/contact-form.js" defer></script>
 </body>
 </html>
+
