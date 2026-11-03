@@ -1,9 +1,11 @@
 // Generates plain HTML for GitHub Pages. Edit templates/ and data/tilbod.json.
 import { readFile, writeFile, mkdir } from 'node:fs/promises';
+import { createHash } from 'node:crypto';
 const root = new URL('../', import.meta.url);
 const read = (path) => readFile(new URL(path, root), 'utf8');
 const data = JSON.parse(await read('data/tilbod.json'));
 const home = await read('index.html');
+const styleVersion = createHash('sha256').update(await read('css/style.css')).digest('hex').slice(0,12);
 const escape = (value) => String(value).replace(/[&<>"']/g, (c) => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 const money = (value) => value === null ? 'Etter avtale' : `${new Intl.NumberFormat('nn-NO').format(value)} kr`;
 const footer = home.match(/  <footer class="footer">[\s\S]*?<\/footer>/)[0];
@@ -46,7 +48,7 @@ for (const [slug, label, title, description] of [
   <meta property="og:locale" content="nn_NO" />
   <meta property="og:site_name" content="Tuningservice Vest" />
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="/css/style.css" />
+  <link rel="stylesheet" href="/css/style.css?v=${styleVersion}" />
   <script src="/js/contact-tracking.js" defer></script>
 </head>
 <body>
