@@ -872,3 +872,17 @@ html { scroll-behavior: smooth; }
 .contact-form-status[hidden] { display:none !important; }
 .footer-credit { grid-column:1/-1; text-align:center; font-size:0.78rem; color:#888; }
 .footer-credit a { color:inherit; }
+
+/* Approved typography A: review/kontakt-ab/comparison.css.
+   Navigation, display prices, eyebrows, headings and buttons retain their styles. */
+:root :is(p, ul, ol, li):not(nav *, .eyebrow, .price-value) { font-family: 'Poppins', sans-serif; font-size: 17px; font-weight: 500; line-height: 1.55; }
+:root:root .contact-form label,
+:root:root .contact-form label * { font-family: 'Poppins', sans-serif; font-size: 16px; font-weight: 600; }
+:root:root .field-help,
+:root:root .form-intro,
+:root:root .contact-form > p,
+:root:root .contact-form-status { font-family: 'Poppins', sans-serif; font-size: 16px; font-weight: 400; }
+:root:root .contact-form input,
+:root:root .contact-form select,
+:root:root .contact-form option,
+:root:root .contact-form textarea { font-family: 'Poppins', sans-serif; font-size: 16px; font-weight: 400; }
