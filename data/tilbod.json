@@ -29,15 +29,73 @@
       }
     ]
   },
+  "utleige": {
+    "vilkar": [
+      "Henting og levering etter avtale.",
+      "Settet blir levert reingjort og skal returnerast i same stand.",
+      "Depositum blir tilbakebetalt når settet er levert komplett og uskadd.",
+      "Helgeperioden blir avtalt ved bestilling."
+    ]
+  },
   "utstyr": [
     {
       "id": "launch-x431",
       "namn": "Launch X431 PRO3S+ SmartLink",
+      "kategori": "Diagnoseutstyr",
       "tillegg": "Med Heavy Duty-utstyr",
+      "korttekst": "Diagnoseutstyr for avlesing av feilkodar og livedata på støtta køyretøy.",
       "skildring": "Diagnoseutstyr for avlesing av feilkodar og livedata på støtta køyretøy. Heavy Duty-utstyret gjer det aktuelt også for lastebil. Kva system og funksjonar du får tilgang til, varierer med køyretøy og oppsett.",
       "prisTekst": "Pris etter avtale",
-      "bilete": null,
-      "bileteAlt": ""
+      "bilete": "/img/utleige/launch-x431-heavy-duty.webp",
+      "bileteBreidd": 1448,
+      "bileteHogd": 1086,
+      "bileteAlt": "Launch X431 PRO3S+ med SmartLink HD, kablar og adapterar framfor den opne utstyrskofferten.",
+      "detaljar": [
+        {"overskrift": "Før vi avtalar leige", "tekst": "Oppgi køyretøy og ønskt leigeperiode, så får du stadfesta dekning, pris og tilgjenge."}
+      ]
+    },
+    {
+      "id": "hjullager-78mm",
+      "namn": "78 mm hjullagerverktøy – Gen 2 / HBU 2.1",
+      "kategori": "Spesialverktøy",
+      "tillegg": "ProTech Tools 73921",
+      "korttekst": "Spesialverktøy for demontering og montering av 78 mm kompaktlager med integrert nav. På kompatible bilar kan arbeidet utførast med spindelen montert.",
+      "prisar": {"dogn": 300, "helg": 500, "depositum": 1000},
+      "bilete": "/img/utleige/78mm-hjullagerverktoy.webp",
+      "bileteBreidd": 1200,
+      "bileteHogd": 1600,
+      "bileteAlt": "78 mm hjullagerverktøy i open blå koffert med pressbolt og pressplater, mellom anna ei plate merkt 78 mm.",
+      "fellesVilkar": true,
+      "detaljar": [
+        {"overskrift": "Passar det til bilen din?", "tekst": "Aktuelt for enkelte variantar av Volvo V50, S40, C30 og C70, Ford Focus og C-Max og Mazda 3. Lagerdiameter og lagertype må kontrollerast for den aktuelle bilen. Send bilmodell, årsmodell og gjerne reg.nr., så vurderer eg om settet passar."},
+        {"overskrift": "Utstyr du treng", "tekst": "Dette er tilleggsutstyr du må ha sjølv for å bruke settet:", "punkt": ["30 mm sekskantnøkkel", "22 mm sekskantpipe og latmannsarm", "6 mm unbrako"], "ettertekst": "Bilspesifikt verktøy til demontering kjem i tillegg."}
+      ],
+      "video": {"tekst": "Sjå demonstrasjon av verktøyet", "url": "https://youtu.be/xhJ74vqZYAM"},
+      "lagerbyte": {
+        "overskrift": "Vil du ha hjelp med lagerbytet?",
+        "tekst": "Eg tilbyr også byte av 78 mm Gen 2 / HBU 2.1-hjullager hos deg.",
+        "pris": 2000,
+        "ettertekst": "Nytt hjullager kjem i tillegg. Eventuell køyring og om bilen passar for tenesta blir avklart før oppdraget.",
+        "emne": "Byte av 78 mm hjullager",
+        "knapp": "Spør om lagerbyte"
+      }
+    },
+    {
+      "id": "universal-hjullagerpresse",
+      "namn": "Universal hjullagerpresse og avdragar",
+      "kategori": "Spesialverktøy",
+      "tillegg": "Biltema",
+      "korttekst": "Verktøysett med pressplater, ringar, koppar og pressbolt for arbeid med tradisjonelle innpressa hjullager og nav. På kompatible bilar kan arbeidet utførast med spindelen montert.",
+      "prisar": {"dogn": 200, "helg": 350, "depositum": 1000},
+      "bilete": "/img/utleige/universal-hjullagerpresse.webp",
+      "bileteBreidd": 494,
+      "bileteHogd": 480,
+      "bileteAlt": "Universal hjullagerpresse og avdragar i raudt brett med ringar, koppar, pressplater og pressbolt.",
+      "fellesVilkar": true,
+      "detaljar": [
+        {"overskrift": "Passar det til bilen din?", "tekst": "Kompatibiliteten avheng av lagerdimensjonar og konstruksjon. Send bilmodell, årsmodell og gjerne reg.nr. for vurdering. Settet erstattar ikkje spesialsettet for 78 mm Gen 2 / HBU 2.1-kompaktlager."}
+      ],
+      "relatert": {"id": "hjullager-78mm", "tekst": "Sjå 78 mm-settet for Gen 2 / HBU 2.1"}
     }
   ]
 }
