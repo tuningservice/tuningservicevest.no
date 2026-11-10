@@ -1,0 +1,12 @@
+#vehicle-journey #chat-dev{display:none!important}
+#vehicle-journey .assistant-privacy-note{font-size:14px;line-height:1.5;margin:12px 0;color:#c8c8c4}
+#assistant-security-status{font-size:14px;line-height:1.5;padding:12px;border:1px solid #75602c;border-radius:8px;margin:12px 0}
+.privacy-page{max-width:850px;margin:40px auto;padding:0 22px;font-size:16px;line-height:1.7}
+.privacy-page h1{font-size:clamp(25px,4vw,36px)}.privacy-page h2{font-size:22px;margin-top:32px}
+.statistics-choice{position:fixed;z-index:1100;left:16px;bottom:16px;max-width:460px;background:#171816;border:1px solid #b59340;border-radius:12px;padding:18px;box-shadow:0 5px 30px #0008;font-size:14px;color:#eee}
+.statistics-choice p{margin:0 0 12px;line-height:1.5}.statistics-choice button{padding:10px 14px;margin:4px 7px 4px 0;background:#e7c16b;color:#12120e;border:1px solid #e7c16b;border-radius:6px;font:inherit;font-weight:600;min-height:44px}
+.statistics-choice a{display:inline-block;margin-top:10px;font-size:14px}
+.footer button[data-statistics-settings]{border:0;background:none;color:inherit;text-decoration:underline;font:inherit;padding:10px;cursor:pointer}
+.contact-compact .contact-actions button{font:inherit;font-weight:600;cursor:pointer}
+@media(max-width:520px){.statistics-choice{left:10px;right:10px;bottom:10px;max-width:none}}
+@media(prefers-reduced-motion:reduce){.statistics-choice{scroll-behavior:auto}}

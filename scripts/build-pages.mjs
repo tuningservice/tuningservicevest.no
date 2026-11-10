@@ -70,6 +70,8 @@ for (const [slug, label, title, description] of [
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="/css/style.css?v=${styleVersion}" />
   <script src="/js/contact-tracking.js" defer></script>
+  <link rel="stylesheet" href="/css/assistant-production.css" />
+  <script type="module" src="/js/statistics-consent.mjs"></script>
 </head>
 <body>
   <a class="skip-link" href="#innhald">Hopp til innhaldet</a>

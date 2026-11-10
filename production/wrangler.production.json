@@ -1,0 +1,71 @@
+{
+  "name": "tuningservicevest-assistant",
+  "account_id": "370a15ea31e73a2ee74eda69cb1ef36b",
+  "main": "worker.mjs",
+  "compatibility_date": "2026-09-18",
+  "compatibility_flags": [
+    "nodejs_compat"
+  ],
+  "workers_dev": false,
+  "preview_urls": false,
+  "assets": {
+    "directory": "../.chat-preview-tmp/production-assets",
+    "binding": "ASSETS",
+    "run_worker_first": true
+  },
+  "d1_databases": [
+    {
+      "binding": "CHAT_DB",
+      "database_name": "tuningservicevest-assistant",
+      "database_id": "ffc5064d-be15-4e88-a637-362b0f68edb6",
+      "migrations_dir": "../cloud-preview/schema"
+    }
+  ],
+  "vars": {
+    "TEST_HOSTNAME": "tuningservicevest.no",
+    "ADMIN_HOSTNAME": "skytest.tuningservicevest.no",
+    "TESTER_EMAILS": "vest@tuningservice.no",
+    "ADMIN_EMAILS": "vest@tuningservice.no",
+    "ACCESS_TEAM_DOMAIN": "lucky-feather-a8c1.cloudflareaccess.com",
+    "ACCESS_AUD": "02578964c30cc04ebe393cf0e6d617fab0ba53c51daf744a04f7a218550df42b",
+    "OPENAI_MODEL": "gpt-6-luna",
+    "AI_BUDGET_PERIOD": "monthly",
+    "DEPLOYMENT_ENV": "production",
+    "PUBLIC_RELEASE_APPROVED": "true",
+    "ASSISTANT_ENABLED": "true",
+    "CATALOGUE_PIN": {
+      "schemaVersion": 1,
+      "filename": "dvx-c74a678c8e2b4e35911c79377ca261eebfa619c9cfb24d1295f291be0736a11c.json",
+      "sha256": "c74a678c8e2b4e35911c79377ca261eebfa619c9cfb24d1295f291be0736a11c",
+      "capturedAt": "2026-11-04T18:03:45.296Z",
+      "sourceGeneratedAt": "2026-11-04T16:54:56.895953+00:00",
+      "upstreamComplete": false,
+      "recordCount": 9911,
+      "variantCount": 6559,
+      "brandCount": 66,
+      "readMethod": "Pinned read handle of atomically published export; stable size/mtime; immutable content-addressed copy."
+    }
+  },
+  "routes": [
+    {
+      "pattern": "skytest.tuningservicevest.no/release-preview/*",
+      "zone_name": "tuningservicevest.no"
+    },
+    {
+      "pattern": "skytest.tuningservicevest.no/production-admin/*",
+      "zone_name": "tuningservicevest.no"
+    },
+    {
+      "pattern": "tuningservicevest.no/api/assistant/*",
+      "zone_name": "tuningservicevest.no"
+    }
+  ],
+  "observability": {
+    "enabled": false
+  },
+  "triggers": {
+    "crons": [
+      "* * * * *"
+    ]
+  }
+}

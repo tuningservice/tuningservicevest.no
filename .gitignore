@@ -1,2 +1,7 @@
 .dev.vars
+.dev.vars.*
+.env
+.env.*
 .wrangler/
+.chat-preview-tmp/
+node_modules/

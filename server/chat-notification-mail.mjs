@@ -1,0 +1,15 @@
+import {contextText} from './chat-contact-mail.mjs';
+import {presentCompactMail,mailVehicleFields} from './chat-mail-presentation.mjs';
+export function renderNotificationEmail(e){
+  const lookup=e.type==='usage.lookup.v1';
+  const header=[e.production?'FRÅ TUNINGSERVICEVEST.NO':e.simulated===false?'LOKAL TEST – EKTE E-POSTLEVERING':'LOKAL TEST – INGEN E-POST ER SEND','Mottakar: '+e.to,'Nettside: '+e.site,'Tidspunkt (UTC): '+e.createdAt,'Referanse: '+e.id,'Samtale-ID: '+(e.conversationId??'Ikkje oppgitt')];
+  let content;
+  if(lookup){const v=e.vehicle;content=['TEKNISK REGNR-OPPSLAG','Regnr: '+e.registration,'Resultat: '+e.outcome.code+' (HTTP '+e.outcome.status+')',e.testData?'TESTDATA – simulert registeroppslag.':'',v?contextText({registration:e.registration,technical:{registered:v,vehicle:[v.manufacturer,v.model].filter(Boolean).join(' ')||'Bilvariant uavklart',confirmation:'register-data-not-catalog-confirmation'}}):'Ingen eintydig bil identifisert.',e.candidates?.length?'Fleire registeroppføringar: '+e.candidates.length+'. Endeleg bil er ikkje vald.':''].filter(Boolean).join('\n');}
+  else {const log=[];let epoch=null;for(const event of e.events){if(epoch!==event.epoch){epoch=event.epoch;log.push('\n=== BILKONTEKST '+epoch+' ===');}log.push('['+event.at+'] '+event.role+': '+event.text);if(event.context)log.push(contextText(event.context));}
+    content=['SAMTALELOGG – '+(e.reason==='explicit-end'?'kunden avslutta':'minst fem minutt utan kundeaktivitet'),'AKTIV BIL',contextText(e.context),'HEILE SAMTALEN I KRONOLOGISK REKKJEFØLGJE',...log].join('\n\n');}
+  const summary=header.join('\n'),attached=Buffer.byteLength(content,'utf8')>60000,full=summary+'\n\n'+content;
+  const v=e.vehicle,questions=(e.events??[]).filter(x=>x.kind==='question'),answers=(e.events??[]).filter(x=>x.kind==='answer'),count=(e.events??[]).filter(x=>['question','answer'].includes(x.kind)).length;
+  return presentCompactMail({title:lookup?'Regnr-oppslag':'Samtalelogg',to:e.to,subject:'[LOKAL TEST] '+(lookup?'Regnr-oppslag':'Samtalelogg')+' – Tuningservice Vest',simulated:e.simulated,production:e.production,
+    fields:lookup?[['Regnr',e.registration],['Resultat',e.outcome.code==='found'?'Bil funnen':({ 'not-found':'Ingen treff',timeout:'Tidsavbrot',quota:'Kvotegrense','access-denied':'Tilgangsfeil',interrupted:'Oppslaget vart avbrote'}[e.outcome.code]??e.outcome.code)],['Bil',v?[v.manufacturer,v.model].filter(Boolean).join(' '):null],['Registrert',v?[v.fuel,v.powerHk!=null?v.powerHk+' HK':null,v.engineCc!=null?v.engineCc+' cm³':null,v.gearbox].filter(Boolean).join(' · '):null]]:[...mailVehicleFields(e.context),['Meldingar',String(count)],['Avslutting',e.reason==='explicit-end'?'kunden avslutta':'Fem minutt utan aktivitet']],
+    message:lookup?null:questions.at(-1)?.text,notes:!lookup&&answers.at(-1)?['Siste svar: '+answers.at(-1).text.slice(0,350)+(answers.at(-1).text.length>350?' … (heile svaret i vedlegget)':'')]:[],fullText:full,reference:e.id,createdAt:e.createdAt});
+}

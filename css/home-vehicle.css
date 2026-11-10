@@ -1,0 +1,32 @@
+/* Shared journey mounted directly below the existing hero, no nested iframe. */
+#vehicle-journey{padding:30px max(24px,calc((100% - 1200px)/2));background:#0b0b0b;border-top:2px solid var(--accent-color);border-bottom:1px solid #413a29;scroll-margin-top:20px}
+#vehicle-journey .journey-layout{display:grid;grid-template-columns:minmax(0,1.45fr) minmax(260px,1fr);gap:32px}
+#vehicle-journey .vehicle-panel{max-width:100%;width:100%;margin:0;padding:0;height:auto;min-height:0;overflow:visible}
+#vehicle-journey .home-journey-heading{margin-bottom:18px}
+#vehicle-journey .home-journey-heading .eyebrow{margin:0 0 7px}
+#vehicle-journey .home-journey-heading .badge{font-size:12px;letter-spacing:0;text-transform:none;margin-left:8px}
+#vehicle-journey .home-journey-heading h2{font-size:clamp(24px,3vw,30px);line-height:1.25;margin:0 0 9px;letter-spacing:-.02em}
+#vehicle-journey .home-journey-heading h2 .badge{vertical-align:middle;white-space:nowrap}
+#vehicle-journey[data-journey-state=entry] .vehicle-content .message{padding:0;border:0;background:transparent;border-radius:0}
+#vehicle-journey[data-journey-state=entry] .vehicle-content .message>p:first-child{display:none}
+#vehicle-journey .home-question{border-left:1px solid #49402e;padding:8px 0 8px 32px;display:flex;flex-direction:column;align-items:flex-start;justify-content:center}
+#vehicle-journey .home-question .chat-launch-icon{color:var(--accent-color);margin-bottom:18px}
+#vehicle-journey .home-question h3{font-size:22px;line-height:1.3;margin:0 0 12px}
+#vehicle-journey .home-question p{font-size:14px;color:#c5c5c0;margin:0 0 18px}
+#vehicle-journey .home-question button{font-size:14px;min-height:46px;padding:11px 18px}
+#vehicle-journey .registration-plate:not(.registration-display){flex-basis:224px;width:224px}
+#vehicle-journey .lookup-input{gap:10px}
+#vehicle-journey .vehicle-content>li{margin:0}
+#vehicle-journey[data-journey-state=active] .home-journey-heading,#vehicle-journey[data-journey-state=active] .home-question{display:none}
+#vehicle-journey[data-journey-state=active] .journey-layout{display:block;max-width:1060px;margin:auto}
+#vehicle-journey #chat-dev{margin:22px 0 0;max-width:1200px}
+#vehicle-journey .mobile-journey-tabs{display:none!important}
+@media(max-width:760px){
+ #vehicle-journey{padding:25px 18px}
+ #vehicle-journey .journey-layout{grid-template-columns:1fr;gap:24px}
+ #vehicle-journey .home-question{border-left:0;border-top:1px solid #49402e;padding:22px 0 0}
+ #vehicle-journey .home-question .chat-launch-icon{display:none}
+ #vehicle-journey .registration-plate:not(.registration-display){flex-basis:206px;width:206px}
+ #vehicle-journey .lookup-input>button{padding:10px 14px}
+ #vehicle-journey .home-journey-heading .eyebrow{font-size:12px}
+}

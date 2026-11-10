@@ -1,0 +1,15 @@
+{
+  "publicReleaseApproved": true,
+  "publicCatalogueDisplayConfirmedByOwner": true,
+  "catalogueDisplayConfirmedAt": "2026-11-09",
+  "aiMonthlyCeilingUSD": 5,
+  "overlayBaseCommit": "c4634e0a99f3706f5bff8da8daa32faf95af46d9",
+  "recipient": "vest@tuningservice.no",
+  "controller": {
+    "name": "BCS Sylte",
+    "organizationNumber": "938299978"
+  },
+  "productionSourceCommit": "1e3b28f22f4996d2bb41b9245ebc90ef6d8c96e6",
+  "publicationApprovedAt": "2026-11-10",
+  "publicationApproval": "Owner explicitly requested public launch in this chat"
+}

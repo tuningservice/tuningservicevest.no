@@ -1,15 +1,7 @@
 <!DOCTYPE html>
 <html lang="nn">
 <head>
-<!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-MRJGSB2C4N"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
 
-  gtag('config', 'G-MRJGSB2C4N');
-</script>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Tuningservice Vest | Mobil diagnose og optimalisering på Vestlandet</title>
@@ -21,7 +13,7 @@
   <meta property="og:url" content="https://tuningservicevest.no/" />
   <meta property="og:image" content="https://tuningservicevest.no/img/hero-bilde.jpg" />
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="css/style.css?v=f1cc1e29f1e1" />
+  <link rel="stylesheet" href="css/style.css?v=9c7eb8e8cfa8" />
   <script type="application/ld+json">
     {
       "@context": "https://schema.org",
@@ -73,7 +65,7 @@
       }
     }
   </script>
-</head>
+<meta name="assistant-api-base" content="/api/assistant"><meta name="assistant-turnstile-sitekey" content="0x4AAAAAAF6UgxLm55cV3mHv"><link rel="stylesheet" href="/css/vehicle-test.css"><link rel="stylesheet" href="/css/chat-preview.css"><link rel="stylesheet" href="/css/effect-graph.css"><link rel="stylesheet" href="/css/home-vehicle.css"><script type="module" src="/js/chat-preview.mjs"></script><link rel="stylesheet" href="/css/assistant-production.css"><script type="module" src="/js/statistics-consent.mjs"></script></head>
 <body id="home">
   <!-- Header with navigation and hero section -->
   <header>
@@ -103,19 +95,31 @@
   </header>
 
   <!-- USP Section -->
-  <section class="usps">
+  <section id="vehicle-journey" class="vehicle-test chat-preview home-journey" data-journey-state="entry" aria-label="Kjøretøyoppslag og AI-assistent">
+<div class="mobile-journey-tabs" role="tablist" aria-label="Val og samtale"><button type="button" id="vehicle-tab" role="tab" aria-selected="true" aria-controls="vehicle-panel">Ditt val</button><button type="button" id="conversation-tab" role="tab" aria-selected="false" aria-controls="conversation-panel" tabindex="-1">Chat</button></div>
+<p class="assistant-privacy-note">Oppslag og chat blir lagra og sende til Bjørn. <a href="/personvern/">Les om personvern</a>.</p><div class="journey-layout" id="journey-layout" data-mobile-panel="vehicle" data-chat-open="false">
+<section id="vehicle-panel" class="vehicle-panel" aria-label="Ditt val"><div class="home-journey-heading"><h2>Finn effektauke og tenester </h2></div><div class="context-bar" id="vehicle-context" hidden><span id="active-context">Ingen val enno</span><button id="new-vehicle" class="secondary-button" type="button">Endre val</button></div><div id="assistant-security-status" role="status" hidden></div><ol id="vehicle-content" class="vehicle-content" aria-label="Val og effektresultat"></ol><div id="vehicle-actions"></div><section id="offer-panel" hidden aria-label="Tilbodsførespurnad"><div id="offer-content"></div></section></section>
+<aside class="home-question"><span class="chat-launch-icon" aria-hidden="true"></span><h3>Lurer du på noko først?</h3><p>Spør om tuning og tenestene våre, også utan regnr.</p><button id="home-open-chat" type="button" class="secondary-button">Spør AI-assistenten</button></aside><section id="conversation-panel" class="conversation-panel" role="dialog" aria-modal="false" aria-labelledby="chat-heading" hidden><div class="conversation-heading"><span class="assistant-avatar" aria-hidden="true">AI</span><div><h2 id="chat-heading">AI-assistent</h2><p id="ai-notice" class="local-note">Kontrollerer AI-tilgang.</p></div><button id="close-chat" type="button" class="secondary-button" aria-label="Minimer chat">Minimer</button></div><p class="conversation-prompt">Spør om tuning og tenestene våre. Bjørn stadfestar pris, kompatibilitet og garanti.</p><details class="chat-privacy"><summary>Om AI og lagring av samtalar</summary><p id="chat-privacy-copy">AI-en kan ta feil. Oppslag og chat blir lagra og sende til Bjørn ved avslutting eller etter fem minutt utan aktivitet. App-loggen blir sletta etter 30 dagar; e-postkopiar blir handterte separat. Sjå personvern.</p></details><div class="chat-suggestions" id="chat-suggestions" aria-label="Forslag til neste steg"></div>
+<ol id="chat-messages" class="chat-messages" aria-label="Samtale" aria-live="polite" aria-relevant="additions text" tabindex="0"></ol>
+<noscript>Samtalevisninga krev JavaScript. Du kan også ringje eller sende e-post.</noscript>
+
+<div class="chat-end-controls"><button id="end-chat" type="button" class="secondary-button">Avslutt samtalen</button><p id="chat-end-status" class="help" role="status"></p></div><form id="chat-composer" class="chat-composer"><label for="chat-question" class="sr-only">Skriv eit spørsmål</label><div><textarea id="chat-question" rows="2" maxlength="2000" placeholder="Skriv ei melding …" aria-describedby="question-help"></textarea><button type="submit">Send</button></div><p id="question-help" class="help">Enter sender · Shift+Enter gir ny linje</p></form></section></div>
+<details class="demo-tools" id="chat-dev" hidden inert><summary>Utviklarpanel · lokal test</summary><p id="chat-config"></p><p id="snapshot-info"></p><p id="active-source-debug">Ingen val enno.</p><details><summary>Teknisk kontroll av siste biloppslag</summary><pre id="lookup-debug">Ingen bil er slått opp.</pre></details><label for="chat-dev-source">Datakjelde for lokal testing</label><select id="chat-dev-source"><option value="vdb">Reservekatalog</option><option value="dvx" selected>Primærkatalog</option></select><p class="help">Primærkatalogen blir føretrekt ved eit underbygd treff. Den andre katalogen er reserve. Kjeldebyte nullstiller bilvalet; effektdata blir aldri slått saman.</p><label for="chat-demo">Syntetisk testscenario</label><select id="chat-demo"></select><button id="run-chat-demo" class="secondary-button" type="button">Bruk tydeleg merkte testdata</button><button id="show-contact-draft" class="secondary-button" type="button">Opne kontaktflyten</button><button id="simulate-chat-mail-error" class="secondary-button" type="button">Simuler neste sendefeil</button><p id="chat-mail-test-status" role="status"></p><details><summary id="notification-mode-heading">Bruksvarsel og samtaleloggar · simulert levering</summary><p><span id="notification-mode-explanation">Varsel ved regnr-søk. Samtalelogg etter fem minutt utan aktivitet eller ved avslutting, også om fana er lukka. Lokalserveren må køyre. Ingen ekte e-post blir send.</span></p><button id="show-chat-notifications" type="button" class="secondary-button">Oppdater varslingskø og e-postførehandsvisning</button><button id="fail-chat-notification" type="button" class="secondary-button">Simuler neste varslingsfeil</button><div id="chat-notifications-list" role="status"></div></details><p id="mail-storage-notice" class="help">Samtale og testførespurnader blir lagra lokalt. Ingen ekte e-post blir send.</p></details>
+<p id="announcer" class="sr-only" role="status" aria-live="polite"></p><button id="chat-launch" type="button" aria-label="Spør AI-assistenten" aria-controls="conversation-panel" aria-expanded="false"><span class="chat-launch-icon" aria-hidden="true"></span><span>Chat</span><span id="chat-unread" class="chat-unread" hidden></span></button>
+  </section>
+<section class="usps">
     <div class="usp-item">
-      <div class="usp-icon">⚡️</div>
+      <div class="usp-icon"><svg class="site-icon" aria-hidden="true" focusable="false" viewBox="0 0 24 24"><use href="/img/ui-icons.svg#truck"></use></svg></div>
       <h3>Mobil hjelp</h3>
       <p>Vi kjem til deg – redusert nedetid når det tel mest.</p>
     </div>
     <div class="usp-item">
-      <div class="usp-icon">🎓</div>
+      <div class="usp-icon"><svg class="site-icon" aria-hidden="true" focusable="false" viewBox="0 0 24 24"><use href="/img/ui-icons.svg#scan-line"></use></svg></div>
       <h3>Diagnose før delar</h3>
       <p>Vi måler og finn årsaka før noko blir bytt.</p>
     </div>
     <div class="usp-item">
-      <div class="usp-icon">📍</div>
+      <div class="usp-icon"><svg class="site-icon" aria-hidden="true" focusable="false" viewBox="0 0 24 24"><use href="/img/ui-icons.svg#map-pin"></use></svg></div>
       <h3>Lokalkjend på Vestlandet</h3>
       <p>Basert i Bjørnafjorden, tilgjengeleg i heile regionen.</p>
     </div>
@@ -126,33 +130,33 @@
     <h2>Våre tenester</h2>
     <div class="services-list">
       <div class="service-item">
-        <div class="service-icon">🛠️</div>
+        <div class="service-icon"><svg class="site-icon" aria-hidden="true" focusable="false" viewBox="0 0 24 24"><use href="/img/ui-icons.svg#wrench"></use></svg></div>
         <h3>Eksosrens</h3>
         <p>Feilsøking, reingjering og reparasjon av DPF, DOC, SCR og EGR-system.</p>
       </div>
       <div class="service-item">
-        <div class="service-icon">💧</div>
+        <div class="service-icon"><svg class="site-icon" aria-hidden="true" focusable="false" viewBox="0 0 24 24"><use href="/img/ui-icons.svg#droplets"></use></svg></div>
         <h3>AdBlue‑system</h3>
         <p>Diagnose og reparasjon av AdBlue-system, NOx-sensorar, pumpe, dyse og komponentar.</p>
       </div>
       <div class="service-item">
-        <div class="service-icon">🔍</div>
+        <div class="service-icon"><svg class="site-icon" aria-hidden="true" focusable="false" viewBox="0 0 24 24"><use href="/img/ui-icons.svg#search"></use></svg></div>
         <h3>Mobil diagnose og feilsøking</h3>
         <p>Avansert diagnose med moderne utstyr – raskt og treffsikkert.</p>
         <a class="text-link service-link" href="/diagnose/">Sjå diagnose og prisar →</a>
       </div>
       <div class="service-item">
-        <div class="service-icon">💻</div>
+        <div class="service-icon"><svg class="site-icon" aria-hidden="true" focusable="false" viewBox="0 0 24 24"><use href="/img/ui-icons.svg#laptop"></use></svg></div>
         <h3>Programmering</h3>
         <p>Programmering, koding og optimalisering av styreeiningar på køyretøy og maskiner.</p>
       </div>
       <div class="service-item">
-        <div class="service-icon">🚚</div>
+        <div class="service-icon"><svg class="site-icon" aria-hidden="true" focusable="false" viewBox="0 0 24 24"><use href="/img/ui-icons.svg#truck"></use></svg></div>
         <h3>Service på staden</h3>
         <p>Vi er mobile og utfører service der maskina står – du sparer tid og pengar.</p>
       </div>
       <div class="service-item">
-        <div class="service-icon" aria-hidden="true">🧰</div>
+        <div class="service-icon" aria-hidden="true"><svg class="site-icon" aria-hidden="true" focusable="false" viewBox="0 0 24 24"><use href="/img/ui-icons.svg#wrench"></use></svg></div>
         <h3>Utleige av utstyr</h3>
         <p>Vil du feilsøkje sjølv? Spør om diagnoseutstyr og spesialverktøy til oppdraget ditt.</p>
         <a class="text-link service-link" href="/utleige/">Sjå utstyr til leige →</a>
@@ -200,81 +204,29 @@
   </section>
 
   <!-- Effect Calculator Section -->
-  <section id="effektkalkulator" class="calculator">
-    <div class="calculator-content">
-      <div class="calculator-copy">
-        <h2>Finn mulig effektøkning for din bil</h2>
-        <p>Velg kjøretøy, modell og motor for å se veiledende optimaliseringsdata. Resultatet avhenger av motor, programvare, teknisk tilstand og oppsett.</p>
-        <p class="calculator-note">Finn du ikkje rett bil eller motor? Ta kontakt, så sjekkar vi manuelt.</p>
-      </div>
-      <div class="calculator-frame">
-        <script src="https://configurator.tuningfileserver.com/assets/app-assets/vendors/iframe-resizer/iframeResizer.min.js"></script>
-        <iframe src="https://configurator.tuningfileserver.com/catalogue/iframe/00cb872a-4387-4672-a6be-c689d0234cb7" id="tuningconfigurator-iframe" width="100%" frameborder="0" scrolling="no"></iframe>
-        <script type="text/javascript">document.getElementById('tuningconfigurator-iframe').addEventListener('load', function() {iFrameResize({heightCalculationMethod: 'taggedElement'}, '#tuningconfigurator-iframe')})</script>
-      </div>
-    
-    </div>
-  </section>
+
 
   <!-- Contact Section -->
-  <section id="contact" class="contact">
-    <h2>Kontakt oss</h2>
-    <p class="contact-intro">For raskare hjelp, send gjerne registreringsnummer, køyretøy- eller maskinmodell, feilmelding eller bilde, eventuelle feilkodar og kvar køyretøyet eller maskina står.</p>
-    <div class="contact-actions">
-      <a href="tel:94809710" class="btn-contact">Ring 948&nbsp;09&nbsp;710</a>
-      <a href="mailto:vest@tuningservice.no" class="btn-contact secondary">Send e-post</a>
-    </div>
-   <div class="contact-form">
-      <h3>Eller send skjema</h3>
-      <p>Reg.nr. og bilete er ikkje nødvendig for å ta kontakt. Ikkje send sensitive personopplysningar.</p>
-      <form id="kontaktskjema" action="/api/contact" method="POST" novalidate>
-<div class="contact-form-field"><label for="emne">Emne</label><select id="emne" name="package"><option value="Generell førespurnad">Generell førespurnad</option><option value="Diagnose">Diagnose</option><option value="Utleige">Utleige</option><option value="Byte av 78 mm hjullager">Byte av 78 mm hjullager</option></select></div>
-        <div class="contact-form-field">
-          <label for="navn">Namn <span class="required" aria-hidden="true">*</span></label>
-          <input type="text" id="navn" name="name" autocomplete="name" maxlength="100" required>
-        </div>
-
-        <div class="contact-form-field">
-          <label for="kontakt-bedrift">Bedrift <span class="optional">(valfritt)</span></label>
-          <input type="text" id="kontakt-bedrift" name="company" autocomplete="organization" maxlength="100">
-        </div>
-
-        <div class="contact-form-field">
-          <label for="epost">E-post <span class="required" aria-hidden="true">*</span></label>
-          <input type="email" id="epost" name="email" autocomplete="email" maxlength="254" required>
-        </div>
-
-        <div class="contact-form-field">
-          <label for="telefon">Telefonnummer <span class="optional">(valfritt)</span></label>
-          <input type="tel" id="telefon" name="phone" autocomplete="tel" maxlength="30">
-        </div>
-
-        <div class="contact-form-field"><label for="regnr">Registreringsnummer (valfritt)</label><input type="text" id="regnr" name="registration" maxlength="30" autocapitalize="characters" spellcheck="false"></div>
-<div class="contact-form-field">
-          <label for="melding">Kva gjeld det?</label>
-<p id="melding-hjelp" class="field-help">Kva skjer, og kvar står bilen, maskina eller varmaren? Ta gjerne med reg.nr. eller modell.</p>
-          <textarea id="melding" name="message" rows="6" maxlength="2600" aria-describedby="melding-hjelp bilete-hjelp"></textarea>
-<p id="bilete-hjelp" class="field-help">Du kan sende skjemaet utan reg.nr. og bilete.</p>
-        </div>
-
-        <p id="kontaktskjema-status" class="contact-form-status" role="status" aria-live="polite" hidden></p>
-
-        <div class="cf-turnstile" data-size="compact" data-sitekey="0x4AAAAAAEgl4lgOV36JFaJD"></div>
-
-        <button type="submit" class="btn-primary" id="sendknapp">Send førespurnad</button>
-      </form></div>
-  </section>
+  <section id="contact" class="contact contact-compact">
+  <h2>Kontakt oss</h2>
+  <p class="contact-intro">Spør Bjørn om tuning, diagnose eller utleige. Du treng ikkje regnr eller eit ferdig modellval for å ta kontakt.</p>
+  <div class="contact-actions">
+    <a href="tel:94809710" class="btn-contact">Ring 948&nbsp;09&nbsp;710</a>
+    <a href="mailto:vest@tuningservice.no" class="btn-contact secondary">Send e-post</a>
+    <button type="button" class="btn-contact secondary" data-open-contact>Send førespurnad</button>
+  </div>
+</section>
 
   <!-- Footer -->
-  <footer class="footer">
+  <footer class="footer"><p>BCS Sylte · org.nr. 938299978</p>
     <p><span class="brand">Tuningservice Vest</span> – Mobil diagnose, feilsøking og optimalisering – for ein tryggare og meir driftssikker kvardag.</p>
-    <p class="footer-credit">Nettside utvikla av <a href="https://vevsmia.no/">Vevsmia</a></p>
-</footer>
+    <p class="footer-credit"><span>Laga med kjærlighet av <a href="https://vevsmia.no/">Vevsmia</a></span><img class="footer-flag" src="/img/norway-flag.svg" width="22" height="16" alt="Norsk flagg" loading="lazy"></p>
+<p><a href="/personvern/">Personvern</a> · <button type="button" data-statistics-settings>Statistikkinnstillingar</button></p></footer>
 
   <script src="/js/contact-tracking.js" defer></script>
 
-<script src="/js/contact-context.js?v=f912ab47b3c9" defer></script>
-<script src="/js/contact-form.js" defer></script>
-</body>
+
+
+<p id="announcer" class="sr-only" role="status" aria-live="polite"></p><button id="chat-launch" type="button" aria-label="Spør AI-assistenten" aria-controls="conversation-panel" aria-expanded="false"><span class="chat-launch-icon" aria-hidden="true"></span><span>Chat</span><span id="chat-unread" class="chat-unread" hidden></span></button></body>
 </html>
 

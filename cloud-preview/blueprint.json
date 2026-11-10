@@ -1,0 +1,154 @@
+{
+  "schemaVersion": 1,
+  "status": "private-cloud-active-live-flow-validated",
+  "checked": "2026-11-09",
+  "strategy": "Separate Cloudflare Worker with Static Assets, D1 and scheduled processing",
+  "production": {
+    "project": "tuningservicevest-no",
+    "repository": "tuningservice/tuningservicevest.no",
+    "repositoryVisibility": "public",
+    "branch": "main",
+    "deploymentCommit": "1e3b28f22f4996d2bb41b9245ebc90ef6d8c96e6",
+    "commitsAheadOfLocalBase": 4,
+    "modified": false
+  },
+  "proposedTest": {
+    "workerName": "tuningservicevest-skytest",
+    "hostname": "skytest.tuningservicevest.no",
+    "hostnameProvisioned": true,
+    "workersDev": false,
+    "previewUrls": false,
+    "assetsRunWorkerFirst": true,
+    "publicRepositoryPush": false,
+    "sourceStrategy": "Separate reviewed customer-journey test; public homepage and repository unchanged"
+  },
+  "access": {
+    "accountRequiresZeroTrustSetup": false,
+    "policyCreated": true,
+    "approvedTesterEmails": [
+      "vest@tuningservice.no"
+    ],
+    "requireVerifiedAccessJwtForAssetsAndApi": true,
+    "separateAdminAllowlist": true,
+    "missingConfigurationFailsClosed": true,
+    "conversationAuthorizationRequired": true,
+    "authentication": "One-time PIN",
+    "sessionHours": 6
+  },
+  "storage": {
+    "kind": "D1",
+    "name": "tuningservicevest-chat-test",
+    "binding": "CHAT_DB",
+    "jurisdiction": "eu",
+    "created": true,
+    "adapterImplemented": true,
+    "schemaTables": 6,
+    "copyExistingPrivateJournal": false,
+    "adapter": "D1 versioned conversation state and atomic conditional outbox batch",
+    "databaseId": "dffe8363-212c-4cb9-b42d-af62982422a2",
+    "migration": "schema/0002-cloud-state.sql",
+    "runningRegion": "EEUR"
+  },
+  "scheduler": {
+    "cron": "* * * * *",
+    "idleSeconds": 300,
+    "created": true,
+    "claimsRequireAtomicLease": true,
+    "revisionsDeduplicated": true,
+    "strictExactlyOnceEmailPromise": false
+  },
+  "mail": {
+    "mode": "live-test",
+    "realDeliveryEnabled": true,
+    "productionWorkerModified": false,
+    "existingStagingWorker": "vevsmia-mail-worker-staging",
+    "existingSandboxFlag": true,
+    "stagingContractVerified": false,
+    "bindExistingMailWorker": false,
+    "futureRecipient": "vest@tuningservice.no",
+    "realDeliveryAuthorisedForPrivateTest": true,
+    "provider": "Existing Mailjet account, direct server adapter, fixed recipient",
+    "actualLookupAccepted": 1,
+    "actualContactAccepted": 1,
+    "actualConversationAccepted": 2,
+    "actualTotalAccepted": 4,
+    "pendingOrFailed": 0,
+    "inboxDeliveryConfirmedByOwner": true,
+    "pushover": "Not connected; evaluating as complementary short alerts"
+  },
+  "catalogue": {
+    "namespace": "dvx",
+    "sourceSha256": "c74a678c8e2b4e35911c79377ca261eebfa619c9cfb24d1295f291be0736a11c",
+    "sourceBytes": 57188424,
+    "records": 9911,
+    "variants": 6559,
+    "brands": 66,
+    "localChunkFiles": 69,
+    "maxChunkBytes": 4189781,
+    "sourceRecordsPreserved": true,
+    "brandIndexBytes": 22043,
+    "cloudLoaderImplemented": true,
+    "fullCatalogLoadedPerRequest": false
+  },
+  "secrets": {
+    "serverVariables": [
+      "OPENAI_MODEL",
+      "CHAT_MAIL_MODE",
+      "ACCESS_TEAM_DOMAIN",
+      "ACCESS_AUD"
+    ],
+    "valuesIncluded": false,
+    "mailjetRequiredWhileSimulated": false,
+    "uploadedNames": [
+      "TUNINGFILES_VDB_API_KEY",
+      "SVV_API_KEY",
+      "OPENAI_API_KEY",
+      "MAILJET_API_KEY",
+      "MAILJET_API_SECRET"
+    ]
+  },
+  "limits": {
+    "aiBudgetMustSurviveRestart": true,
+    "perTesterRateLimitRequired": true,
+    "globalBudgetRequired": true,
+    "freeCpuFitProven": false,
+    "newSubscriptionRequired": false,
+    "newSubscriptionAssessment": "Not established; measure Cloudflare CPU after porting and per-brand loading before deciding.",
+    "firstTestBudgetUSD": 10,
+    "aiReserveUSD": 5,
+    "workersBaseReserveUSD": 5,
+    "globalCloudflareHardCap": false
+  },
+  "activationGates": [
+    "Bjørn checks actual inbox delivery and private customer experience",
+    "Separate readiness review and explicit approval before any public launch"
+  ],
+  "validation": {
+    "automatedPassed": 534,
+    "automatedFailed": 0,
+    "unauthenticatedRoutesDenied": [
+      "/",
+      "/css/style.css",
+      "/data/cloud/index.json",
+      "/api/chat-status"
+    ],
+    "liveGeneralAi": true,
+    "liveLookupAndEffect": true,
+    "liveStageContext": true,
+    "closedTabIdleTest": "accepted-by-Mailjet-after-309-seconds",
+    "explicitEndLog": true,
+    "liveVehicleChangeClearedOldContext": true,
+    "mobileViewport": "390x844",
+    "clientSecretScanMatches": 0
+  },
+  "ownCatalogue": {
+    "namespace": "tsv",
+    "variants": 1,
+    "stages": 1,
+    "source": "Owner-supplied technical values; not measured",
+    "clientAndServerModule": "js/tsv-catalogue.mjs",
+    "supplierSnapshotModified": false,
+    "realLookupVerified": true,
+    "manualSearchVerified": true
+  }
+}

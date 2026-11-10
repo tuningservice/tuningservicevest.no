@@ -1,0 +1,11 @@
+{
+  "accountId": "370a15ea31e73a2ee74eda69cb1ef36b",
+  "workerName": "tuningservicevest-assistant",
+  "databaseName": "tuningservicevest-assistant",
+  "databaseId": "ffc5064d-be15-4e88-a637-362b0f68edb6",
+  "jurisdiction": "eu",
+  "publicHost": "tuningservicevest.no",
+  "adminHost": "skytest.tuningservicevest.no",
+  "accessTeam": "lucky-feather-a8c1.cloudflareaccess.com",
+  "accessAud": "02578964c30cc04ebe393cf0e6d617fab0ba53c51daf744a04f7a218550df42b"
+}
