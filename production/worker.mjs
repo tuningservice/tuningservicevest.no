@@ -13,6 +13,7 @@ export function createProductionWorker({fetchImpl=cloudFetch,now=()=>Date.now(),
   async fetch(request,env,execution){
    try{
     const url=new URL(request.url);
+    if(env.REDIRECT_HOSTNAME&&url.hostname===env.REDIRECT_HOSTNAME){url.hostname=env.TEST_HOSTNAME;return Response.redirect(url.href,308);}
     if(url.hostname===env.ADMIN_HOSTNAME&&url.pathname.startsWith('/release-preview/')&&env.RELEASE_PRIVATE!=='true'){
      let preview=previewEnvs.get(env);if(!preview){preview={...env,TEST_HOSTNAME:env.ADMIN_HOSTNAME,RELEASE_PRIVATE:'true',PUBLIC_BASE_PATH:'/release-preview'};previewEnvs.set(env,preview);}env=preview;
     }

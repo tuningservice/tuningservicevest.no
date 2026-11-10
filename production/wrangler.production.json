@@ -44,7 +44,8 @@
       "variantCount": 6559,
       "brandCount": 66,
       "readMethod": "Pinned read handle of atomically published export; stable size/mtime; immutable content-addressed copy."
-    }
+    },
+    "REDIRECT_HOSTNAME": "www.tuningservicevest.no"
   },
   "routes": [
     {
@@ -57,6 +58,10 @@
     },
     {
       "pattern": "tuningservicevest.no/api/assistant/*",
+      "zone_name": "tuningservicevest.no"
+    },
+    {
+      "pattern": "www.tuningservicevest.no/*",
       "zone_name": "tuningservicevest.no"
     }
   ],
