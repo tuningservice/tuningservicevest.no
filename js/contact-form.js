@@ -14,10 +14,10 @@
     sending: "Sender…",
     checking: "Stadfestar at du ikkje er ein robot…",
     sent: "Takk! Henvendinga er sendt. Vi tek kontakt så snart vi kan.",
-    turnstile: "Kunne ikkje stadfeste at du ikkje er ein robot. Prøv igjen, eller ring 948 09 710.",
-    rateLimit: "For mange forsøk på kort tid. Vent litt og prøv igjen, eller ring 948 09 710.",
+    turnstile: "Kunne ikkje stadfeste at du ikkje er ein robot. Prøv igjen, eller ring 991 92 333.",
+    rateLimit: "For mange forsøk på kort tid. Vent litt og prøv igjen, eller ring 991 92 333.",
     validation: "Sjekk at namn og e-post er fylt ut rett, og prøv igjen.",
-    unknown: "Noko gjekk gale, og meldinga blei ikkje sendt. Prøv igjen, eller ring 948 09 710."
+    unknown: "Noko gjekk gale, og meldinga blei ikkje sendt. Prøv igjen, eller ring 991 92 333."
   };
 
   var turnstileStarted = false;
