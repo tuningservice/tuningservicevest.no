@@ -3,7 +3,7 @@ import assert from 'node:assert/strict';
 import {contactEntryMessage,combineContactMessage,mountContactEntries} from '../js/contact-entry.mjs';
 import {compactContactSection} from '../production/contact-section.mjs';
 test('compact footer retains phone/mail fallbacks and opens one shared contact flow without a second form',()=>{
- assert.match(compactContactSection,/tel:94809710/);assert.match(compactContactSection,/mailto:vest@tuningservice.no/);assert.match(compactContactSection,/data-open-contact>Send førespurnad/);assert.doesNotMatch(compactContactSection,/<form|<input/);
+ assert.match(compactContactSection,/tel:99192333/);assert.match(compactContactSection,/mailto:vest@tuningservice.no/);assert.match(compactContactSection,/data-open-contact>Send førespurnad/);assert.doesNotMatch(compactContactSection,/<form|<input/);
 });
 test('diagnose, rental and bearing links retain only approved topics and bounded equipment text',()=>{
  assert.equal(contactEntryMessage('?emne=Diagnose'),'Emne: Diagnose');
